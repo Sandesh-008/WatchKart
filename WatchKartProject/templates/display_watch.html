@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Watch</title>
+</head>
+<body>
+<div class="container mt-4">
+  <h2 class="text-center">Watch Inventory</h2>
+  <table class="table table-bordered table-hover mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Gender</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for watch in watches %}
+      <tr>
+        <td>{{ watch.id }}</td>
+        <td>{{ watch.name }}</td>
+        <td>{{ watch.brand }}</td>
+        <td>{{ watch.gender }}</td>
+        <td>{{ watch.category }}</td>
+        <td>₹{{ watch.price }}</td>
+        <td>{{ watch.stock }}</td>
+        <td>
+          <a href="{% url 'update-watch' watch.id %}" >Update</a>
+          <a href="{% url 'delete-watch' watch.id %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
