@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Register Page</title>
+{% endblock %}
+
+{%  block content %}
+<h3 class="text-center text-info">Login</h3>
+<div class="container justify-content-center mt-5 w-50">
+    <form method="POST" >
+        {% csrf_token %}
+        <label >Enter Username :</label><br>
+        <input type="text" name="username" class="form-control"><br><br>
+        <label >Enter Password :</label><br>
+        <input type="password" name="password" class="form-control"><br><br>
+        <button type="submit" class="btn btn-outline-success">Login</button>
+        <br>
+        <hr>
+        <p>Don't have an Account? Sign Up here.</p>
+        <button class="btn btn-sm btn-primary"><a href="{% url 'register' %}">Sign Up</a></button>
+    </form>
+</div>
+{% endblock %}

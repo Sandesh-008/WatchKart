@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'watchapp',
     "crispy_forms",
     "crispy_bootstrap5",
+    'AuthAPP',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
