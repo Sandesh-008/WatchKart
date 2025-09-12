@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 def registerView(request):
     form = UserCreationForm()
@@ -20,7 +21,11 @@ def loginView(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, 'Login Successful')
             return redirect('display-watch')
+
+        else:
+            messages.error(request, 'Invalid Credentials')
     template_name = "AuthAPP/login.html"
     context = {}
     return render(request, template_name, context)
