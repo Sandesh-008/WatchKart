@@ -7,7 +7,7 @@ from django.contrib import messages
 def add_watch(request):
     form = WatchAppForm()
     if request.method == "POST":
-        form = WatchAppForm(request.POST)
+        form = WatchAppForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Watch added successfully !')
@@ -26,7 +26,7 @@ def update_watch(request, id):
     watch_obj = WatchApp.objects.get(id=id)
     form = WatchAppForm(instance=watch_obj)
     if request.method == "POST":
-        form = WatchAppForm(request.POST, instance=watch_obj)
+        form = WatchAppForm(request.POST, request.FILES, instance=watch_obj)
         if form.is_valid():
             form.save()
             messages.warning(request, 'Watch updated successfully !')

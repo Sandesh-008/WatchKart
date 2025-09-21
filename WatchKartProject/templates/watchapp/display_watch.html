@@ -12,6 +12,7 @@
     <thead class="table-dark">
       <tr>
         <th>ID</th>
+        <th>Image</th>
         <th>Name</th>
         <th>Brand</th>
         <th>Gender</th>
@@ -25,6 +26,13 @@
       {% for watch in watches %}
       <tr>
         <td>{{ watch.id }}</td>
+        <td>
+          {% if watch.image %}
+          <img src="{{ watch.image.url }}" alt="{{ watch.image }}" style="height: 100px; width: 100px;">
+          {% else %}
+          <p>No Image Uploaded</p>
+          {% endif %}
+        </td>
         <td>{{ watch.name }}</td>
         <td>{{ watch.brand }}</td>
         <td>{{ watch.gender }}</td>
